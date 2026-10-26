@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Подробное описание товара.">
+    <!-- ЗАПОЛНИТЬ: название конкретного товара -->
+    <title>Название товара — Учебный магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="index.html">МойМагазин</a>
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <span>Название товара</span> <!-- ЗАПОЛНИТЬ -->
+            </nav>
+
+            <article class="product-detail">
+                <!-- Большая картинка для страницы товара, но мне лень, будет та же -->
+                <img class="product-detail__image" src="images/ArduinoUno.jpg" alt="Плата Arduino Uno крупным планом">
+                
+                <div class="product-detail__info">
+                    <h1 class="product-detail__title">Arduino Uno</h1>
+                    <p class="product-detail__price">500 ₽</p>
+                    
+                    <p class="product-detail__description">
+                        Классическая универсальная плата на базе микроконтроллера ATmega328P с тактовой частотой 16 МГц. 
+                        Отлично подходит для обучения и создания первых проектов. 
+                        Рекомендуемое входное напряжение питания: 7–12 В (на плате стабилизируется до 5 В).
+                    </p>
+
+                    <h3>Характеристики</h3>
+                    <ul class="product-detail__specs">
+                        <li><strong>Микроконтроллер:</strong> ATmega328P</li>
+                        <li><strong>Память:</strong> Flash 32 КБ (из них ~0,5 КБ — загрузчик), SRAM 2 КБ, EEPROM 1 КБ</li>
+                        <li><strong>Цифровые входы/выводы:</strong> 14 (6 поддерживают ШИМ)</li>
+                        <li><strong>Аналоговые входы:</strong> 6 (разрешение 10 бит)</li>
+                        <li><strong>Интерфейсы:</strong> USB Type-B, силовой разъём, разъём ICSP, кнопка сброса</li>
+                    </ul>
+
+                    <button class="button product-card__button" type="button" data-product="Arduino Uno">Оформить заявку</button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        </div>
+    </footer>
+
+<dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+  <h2 id="order-dialog-title">Оформление заявки</h2>
+
+  <form class="order-form" id="order-form" action="#" method="post" novalidate>
+    <input id="selected-product" name="selected-product" type="hidden">
+
+    <div class="form-field">
+      <label for="order-name">Имя</label>
+      <input
+        id="order-name"
+        name="name"
+        type="text"
+        placeholder="Введите ваше имя"
+        minlength="2"
+        autocomplete="given-name"
+        required
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="order-email">E-mail</label>
+      <input
+        id="order-email"
+        name="email"
+        type="email"
+        placeholder="example@mail.ru"
+        autocomplete="email"
+        required
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="order-phone">Телефон</label>
+      <input
+        id="order-phone"
+        name="phone"
+        type="tel"
+        inputmode="tel"
+        placeholder="+7 (900) 000-00-00"
+        pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+        required
+      >
+      <small>Формат: +7 (900) 000-00-00</small>
+    </div>
+
+    <div class="form-field">
+      <label for="order-date">Дата связи</label>
+      <input
+        id="order-date"
+        name="date"
+        type="date"
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="order-topic">Тема заявки</label>
+      <select id="order-topic" name="topic" required>
+        <option value="">Выберите тему</option>
+        <option value="product">Заказ товара</option>
+        <option value="consultation">Консультация</option>
+        <option value="delivery">Доставка</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="order-comment">Комментарий</label>
+      <textarea
+        id="order-comment"
+        name="comment"
+        rows="4"
+        placeholder="Укажите дополнительную информацию"
+      ></textarea>
+    </div>
+
+    <div class="form-field form-field--checkbox">
+      <label>
+        <input
+          id="order-agreement"
+          name="agreement"
+          type="checkbox"
+          required
+        >
+        Я согласен на обработку данных
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" id="close-order-dialog">Закрыть</button>
+      <button type="submit">Отправить заявку</button>
+    </div>
+  </form>
+</dialog>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

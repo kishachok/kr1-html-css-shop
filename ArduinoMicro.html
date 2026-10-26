@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Подробное описание товара.">
+    <title>Arduino Micro — Учебный магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a class="logo" href="index.html">МойМагазин</a>
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="section">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="index.html">Главная</a> / 
+                <a href="catalog.html">Каталог</a> / 
+                <span>Arduino Micro</span>
+            </nav>
+
+            <article class="product-detail">
+                <img class="product-detail__image" src="images/ArduinoMicro.jpg" alt="Плата Arduino Micro">
+                
+                <div class="product-detail__info">
+                    <h1 class="product-detail__title">Arduino Micro</h1>
+                    <p class="product-detail__price">636 ₽</p>
+                    
+                    <p class="product-detail__description">
+                        Самая маленькая плата в линейке Arduino с встроенным USB-контроллером ATmega32U4. 
+                        Отлично подходит для проектов, где важна компактность: носимая электроника, 
+                        HID-устройства (клавиатуры, мыши), интеграция в корпуса с ограниченным местом.
+                    </p>
+
+                    <h3>Характеристики</h3>
+                    <ul class="product-detail__specs">
+                        <li><strong>Микроконтроллер:</strong> ATmega32U4</li>
+                        <li><strong>Тактовая частота:</strong> 16 МГц</li>
+                        <li><strong>Память:</strong> Flash 32 КБ, SRAM 2.5 КБ, EEPROM 1 КБ</li>
+                        <li><strong>Цифровые входы/выводы:</strong> 20 (7 поддерживают ШИМ)</li>
+                        <li><strong>Аналоговые входы:</strong> 12 (разрешение 10 бит)</li>
+                        <li><strong>Интерфейсы:</strong> Micro-USB, разъём ICSP</li>
+                        <li><strong>Питание:</strong> 5 В (рекомендуемое входное — 7–12 В)</li>
+                        <li><strong>Особенности:</strong> встроенный USB (не нужен отдельный чип), совместима с Leonardo</li>
+                    </ul>
+
+                    <button class="button product-card__button" type="button" data-product="Arduino Micro">Оформить заявку</button>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        </div>
+    </footer>
+
+<dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+  <h2 id="order-dialog-title">Оформление заявки</h2>
+
+  <form class="order-form" id="order-form" action="#" method="post" novalidate>
+    <input id="selected-product" name="selected-product" type="hidden">
+
+    <div class="form-field">
+      <label for="order-name">Имя</label>
+      <input
+        id="order-name"
+        name="name"
+        type="text"
+        placeholder="Введите ваше имя"
+        minlength="2"
+        autocomplete="given-name"
+        required
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="order-email">E-mail</label>
+      <input
+        id="order-email"
+        name="email"
+        type="email"
+        placeholder="example@mail.ru"
+        autocomplete="email"
+        required
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="order-phone">Телефон</label>
+      <input
+        id="order-phone"
+        name="phone"
+        type="tel"
+        inputmode="tel"
+        placeholder="+7 (900) 000-00-00"
+        pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+        required
+      >
+      <small>Формат: +7 (900) 000-00-00</small>
+    </div>
+
+    <div class="form-field">
+      <label for="order-date">Дата связи</label>
+      <input
+        id="order-date"
+        name="date"
+        type="date"
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="order-topic">Тема заявки</label>
+      <select id="order-topic" name="topic" required>
+        <option value="">Выберите тему</option>
+        <option value="product">Заказ товара</option>
+        <option value="consultation">Консультация</option>
+        <option value="delivery">Доставка</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="order-comment">Комментарий</label>
+      <textarea
+        id="order-comment"
+        name="comment"
+        rows="4"
+        placeholder="Укажите дополнительную информацию"
+      ></textarea>
+    </div>
+
+    <div class="form-field form-field--checkbox">
+      <label>
+        <input
+          id="order-agreement"
+          name="agreement"
+          type="checkbox"
+          required
+        >
+        Я согласен на обработку данных
+      </label>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" id="close-order-dialog">Закрыть</button>
+      <button type="submit">Отправить заявку</button>
+    </div>
+  </form>
+</dialog>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
